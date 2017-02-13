@@ -137,7 +137,9 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 						<configuration>
 							<target>
 								<exec executable="mv"><arg line="${project.build.directory}/desij-${desij.version} ${project.build.directory}/desij" /></exec>
-								<exec executable="mv"><arg line="${project.build.directory}/asgresyn-${resyn.version} ${project.build.directory}/asgresyn" /></exec>
+								<mkdir dir="${project.build.directory}/resyntmp"/>
+								<exec executable="tar"><arg line="-xzf ${project.build.directory}/asgresyn-${resyn.version}-unix.tar.gz -C ${project.build.directory}/resyntmp" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/resyntmp/asgresyn-${resyn.version} ${project.build.directory}/asgresyn" /></exec>
 								<exec executable="mv"><arg line="${project.build.directory}/asglogic-${logic.version} ${project.build.directory}/asglogic" /></exec>
 								<exec executable="mv"><arg line="${project.build.directory}/asgdelaymatch-${delaymatch.version} ${project.build.directory}/asgdelaymatch" /></exec>
 								<exec executable="mv"><arg line="${project.build.directory}/asgbreezegui-${breezegui.version} ${project.build.directory}/asgbreezegui" /></exec>
@@ -155,6 +157,26 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
+						<id>copy-res</id>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asgresyn</artifactId>
+									<version>${resyn.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<phase>generate-resources</phase>
+						<id>unpack-res</id>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
@@ -164,14 +186,6 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 									<groupId>net.strongdesign</groupId>
 									<artifactId>desij</artifactId>
 									<version>${desij.version}</version>
-									<classifier>unix</classifier>
-									<type>tar.gz</type>
-									<outputDirectory>${project.build.directory}</outputDirectory>
-								</artifactItem>
-								<artifactItem>
-									<groupId>de.uni_potsdam.hpi.asg</groupId>
-									<artifactId>asgresyn</artifactId>
-									<version>${resyn.version}</version>
 									<classifier>unix</classifier>
 									<type>tar.gz</type>
 									<outputDirectory>${project.build.directory}</outputDirectory>
