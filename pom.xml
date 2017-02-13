@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright 2017 Norman Kluge
+ 
+This file is part of ASGtools.
+ 
+ASGtools is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ASGtools is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.uni_potsdam.hpi.asg</groupId>
+	<artifactId>asgtools</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<organization>
+		<name>Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH</name>
+		<url>http://www.hpi.uni-potsdam.de</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>Norman Kluge</name>
+			<organization>Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH</organization>
+			<email>norman.kluge@hpi.de</email>
+		</developer>
+	</developers>
+	<inceptionYear>2017</inceptionYear>
+	<licenses>
+		<license>
+			<name>GNU General Public License (GPL)</name>
+			<url>http://www.gnu.org/licenses/gpl.txt</url>
+		</license>
+	</licenses>
+	<properties>
+		<jar.skipIfEmpty>true</jar.skipIfEmpty>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<desij.version>3.1.1-SNAPSHOT</desij.version>
+		<common.version>2.1.0-SNAPSHOT</common.version>
+		<resyn.version>1.2.0-SNAPSHOT</resyn.version>		
+		<breezegui.version>1.0.4-SNAPSHOT</breezegui.version>
+		<logic.version>0.2.0-SNAPSHOT</logic.version>
+		<delaymatch.version>1.2.3-SNAPSHOT</delaymatch.version>
+		<configgen.version>1.0.0-SNAPSHOT</configgen.version>
+		<techmngr.version>1.0.0-SNAPSHOT</techmngr.version>
+	</properties>
+	<build>
+		<resources>
+			<resource>
+				<directory>*</directory>
+				<excludes>
+					<exclude>**/*</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>2.9</versionRange>
+										<goals>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/unix_assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<exec executable="mv"><arg line="${project.build.directory}/desij-${desij.version} ${project.build.directory}/desij" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/asgresyn-${resyn.version} ${project.build.directory}/asgresyn" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/asglogic-${logic.version} ${project.build.directory}/asglogic" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/asgdelaymatch-${delaymatch.version} ${project.build.directory}/asgdelaymatch" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/asgbreezegui-${breezegui.version} ${project.build.directory}/asgbreezegui" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/asgconfiggen-${configgen.version} ${project.build.directory}/asgconfiggen" /></exec>
+								<exec executable="mv"><arg line="${project.build.directory}/asgtechmngr-${techmngr.version} ${project.build.directory}/asgtechmngr" /></exec>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>net.strongdesign</groupId>
+									<artifactId>desij</artifactId>
+									<version>${desij.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asgresyn</artifactId>
+									<version>${resyn.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asglogic</artifactId>
+									<version>${logic.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asgdelaymatch</artifactId>
+									<version>${delaymatch.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asgbreezegui</artifactId>
+									<version>${breezegui.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asgconfiggen</artifactId>
+									<version>${configgen.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>de.uni_potsdam.hpi.asg</groupId>
+									<artifactId>asgtechmngr</artifactId>
+									<version>${techmngr.version}</version>
+									<classifier>unix</classifier>
+									<type>tar.gz</type>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies />
+</project>
