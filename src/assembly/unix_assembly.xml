@@ -27,6 +27,23 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 		<format>tar.gz</format>
 		<format>dir</format>
 	</formats>
+	<files>
+		<file>
+			<source>LICENSE.txt</source>
+			<outputDirectory>legal</outputDirectory>
+			<destName>ASGtools_LICENSE.txt</destName>
+		</file>
+		<file>
+			<source>NOTICE.txt</source>
+			<outputDirectory>legal</outputDirectory>
+			<destName>ASGtools_NOTICE.txt</destName>
+		</file>
+		<file>
+			<source>README.md</source>
+			<outputDirectory>readme</outputDirectory>
+			<destName>0_ASGtools_README_first.md</destName>
+		</file>
+	</files>
 	<fileSets>
 		<fileSet>
 			<directory>${project.build.directory}/desij</directory>
@@ -72,6 +89,13 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 		</fileSet>
 		<fileSet>
 			<directory>${project.build.directory}/asgtechmngr</directory>
+			<outputDirectory>.</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/asgdrivestrength</directory>
 			<outputDirectory>.</outputDirectory>
 			<includes>
 				<include>**/*</include>

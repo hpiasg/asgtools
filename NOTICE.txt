@@ -1,0 +1,55 @@
+ASGtools v1.0
+Copyright (C) 2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+
+This product includes software developed at Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH.
+The Software developed and owned by the Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 ("GPL") to all third parties and that license, as required by the GPL, is included in the LICENSE.txt file.
+
+This software makes use of the following external software:
+
+ASGbreezegui v1.1
+https://github.com/hpiasg/asgbreezegui
+Copyright (C) 2012-2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGbreezegui_NOTICE.txt
+
+ASGconfigGen v1.0
+https://github.com/hpiasg/asgconfiggen
+Copyright (C) 2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGconfiggen_NOTICE.txt
+
+ASGdelaymatch v1.3
+https://github.com/hpiasg/asgdelaymatch
+Copyright (C) 2012-2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGdelaymtach_NOTICE.txt
+
+ASGdrivestrength v1.0
+https://github.com/hpiasg/asgdrivestrength
+Copyright (C) 2016-2017 Florian Meinel
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGdrivestrength_NOTICE.txt
+
+ASGlogic v0.2
+https://github.com/hpiasg/asglogic
+Copyright (C) 2012-2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGlogic_NOTICE.txt
+
+ASGresyn v1.2
+https://github.com/hpiasg/asgresyn
+Copyright (C) 2012-2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGresyn_NOTICE.txt
+
+ASGtechMngr v1.0
+https://github.com/hpiasg/asgtechmngr
+Copyright (C) 2017 Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/ASGtechmngr_NOTICE.txt
+
+DesiJ: A Tool for STG Decomposition v3.1.1
+https://github.com/hpiasg/desij
+Copyright (C) 2004-2017 Universitaet Augsburg, Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH
+Licensed under GNU General Public License (GPL), Version 3.0
+Notice: legal/DesiJ_NOTICE.txt
