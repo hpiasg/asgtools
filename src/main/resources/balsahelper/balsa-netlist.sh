@@ -19,4 +19,5 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export BALSAHOME=$DIR
+export PATH=$PATH:$DIR/bin
 $DIR/bin/balsa-netlist "$@"
