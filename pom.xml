@@ -24,7 +24,7 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.uni_potsdam.hpi.asg</groupId>
 	<artifactId>asgtools</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<organization>
 		<name>Hasso-Plattner-Institut fuer Softwaresystemtechnik GmbH</name>
 		<url>http://www.hpi.uni-potsdam.de</url>
@@ -49,14 +49,14 @@ along with ASGtools.  If not, see <http://www.gnu.org/licenses/>.
 	<properties>
 		<jar.skipIfEmpty>true</jar.skipIfEmpty>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<desij.version>3.1.2-SNAPSHOT</desij.version>
-		<resyn.version>1.2.0-SNAPSHOT</resyn.version>		
-		<breezegui.version>1.1.0-SNAPSHOT</breezegui.version>
-		<logic.version>0.2.0-SNAPSHOT</logic.version>
-		<delaymatch.version>1.3.0-SNAPSHOT</delaymatch.version>
-		<configgen.version>1.0.0-SNAPSHOT</configgen.version>
-		<techmngr.version>1.0.0-SNAPSHOT</techmngr.version>
-		<drivestrength.version>1.0.0-SNAPSHOT</drivestrength.version>
+		<desij.version>3.1.2</desij.version>
+		<resyn.version>1.2.0</resyn.version>
+		<breezegui.version>1.1.0</breezegui.version>
+		<logic.version>0.2.0</logic.version>
+		<delaymatch.version>1.3.0</delaymatch.version>
+		<configgen.version>1.0.0</configgen.version>
+		<techmngr.version>1.0.0</techmngr.version>
+		<drivestrength.version>1.0.0</drivestrength.version>
 	</properties>
 	<build>
 		<resources>
