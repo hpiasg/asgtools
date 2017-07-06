@@ -3,6 +3,8 @@ ASGtools
 
 ASGtools is a tool suite containing all ASGtools.
 
+If you want to learn more about the (theoretical) background of the tools, please visit the [wiki](https://github.com/hpiasg/asgtools/wiki).
+
 ### Contents ###
 
 The following ASGtools are included in this package:
@@ -79,7 +81,7 @@ This creates the file `balsaImpl.v` containing an optimised verilog netlist impl
 
 	bin/DesiJ_gui benchmark.g  
 
-ASGresyn will only optimise the control path of the circuit. If you have configured the remote tools in the Configuration step you want to add `-odp` to the options list to optimise the data path. 
+Using the command above, ASGresyn will only optimise the control path of the circuit. If you have configured the remote tools in the Configuration step you should add `-odp` to the options list to optimise the data path too. 
 
 ##### 2) Transistor sizing #####
 
